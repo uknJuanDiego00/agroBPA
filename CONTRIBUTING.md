@@ -1,144 +1,194 @@
-Guía de trabajo colaborativo — AgroBPA
+# Guía para el trabajo en equipo — AgroBPA
 
-Este documento contiene las reglas y recomendaciones que seguiremos como equipo para trabajar de manera organizada en el desarrollo del proyecto AgroBPA.
+Esta guía establece algunas pautas que utilizaremos durante el desarrollo de AgroBPA con el propósito de mantener una buena organización entre los integrantes del equipo.
 
-El objetivo es evitar conflictos entre los cambios realizados por los integrantes y mantener el proyecto organizado y fácil de mantener.
+La idea principal es trabajar de forma coordinada, mantener un historial claro de los cambios y evitar problemas al momento de integrar el trabajo realizado por cada integrante.
 
-1. Organización del trabajo
+---
 
-Cada integrante debe trabajar principalmente en la tarea o funcionalidad que le haya sido asignada.
+## 1. Distribución de actividades
 
-Antes de comenzar una nueva tarea, debemos comunicarnos con el equipo para evitar que dos personas trabajen sobre la misma parte del proyecto al mismo tiempo.
+Cada integrante tendrá a su cargo determinadas actividades dentro del proyecto.
 
-2. Uso de ramas
+Se debe procurar trabajar sobre las tareas asignadas y consultar con el equipo antes de comenzar una actividad que pueda involucrar archivos o funcionalidades que estén siendo desarrolladas por otro compañero.
 
-No se deben realizar cambios directamente sobre la rama main.
+De esta manera evitamos duplicar trabajo y reducimos la posibilidad de generar conflictos.
 
-Para cada funcionalidad, corrección o tarea se debe crear una rama propia.
+---
 
-Ejemplos:
+## 2. Manejo de ramas
 
-git checkout -b feature/registro-usuarios
-git checkout -b feature/gestion-cultivos
-git checkout -b fix/error-login
+La rama `main` será utilizada para mantener una versión estable del proyecto.
 
+Por esta razón, los desarrollos nuevos, correcciones y pruebas deben realizarse utilizando ramas independientes.
 
-El nombre de la rama debe indicar brevemente qué se está trabajando.
+### Ejemplos de ramas
 
-3. Commits
+`git checkout -b feature/usuarios`
 
-Los commits deben ser claros y explicar qué cambio se realizó.
+`git checkout -b feature/cultivos`
 
-Ejemplos:
+`git checkout -b fix/login`
 
-feat: agregar registro de usuarios
-feat: crear módulo de cultivos
-fix: corregir validación del formulario
-docs: actualizar documentación
-style: mejorar estilos de la pantalla principal
+El nombre de cada rama debe permitir identificar fácilmente el objetivo del trabajo realizado.
 
+---
 
-Se recomienda evitar mensajes demasiado generales como:
+## 3. Registro de cambios
 
-cambios
-actualizacion
-arreglos
-cosas nuevas
+Cada modificación importante debe quedar registrada mediante un commit.
 
+El mensaje debe ser corto, específico y permitir entender qué se modificó.
 
-Es mejor que cada commit represente un cambio concreto.
+### Ejemplos de commits
 
-4. Antes de hacer cambios
+`feat: implementar formulario de usuarios`
 
-Antes de comenzar a trabajar, debemos actualizar nuestra rama con los últimos cambios del proyecto.
+`feat: agregar gestión de cultivos`
 
-git pull
+`fix: solucionar error de inicio de sesión`
 
+`docs: modificar guía del proyecto`
 
-Esto ayuda a reducir conflictos y evita trabajar sobre una versión desactualizada del código.
+`style: ajustar diseño del panel`
 
-5. Antes de subir cambios
+Evitemos utilizar mensajes poco descriptivos como:
 
-Antes de hacer push, cada integrante debe verificar que sus cambios funcionen correctamente y que no hayan afectado otras funcionalidades.
+- `cambios`
+- `prueba`
+- `arreglado`
+- `actualización`
+- `nuevo`
 
-Se recomienda revisar:
+Un buen mensaje facilita posteriormente la revisión del historial del proyecto.
 
-Que el proyecto pueda ejecutarse correctamente.
+---
 
-Que no existan errores evidentes.
+## 4. Preparación antes de programar
 
-Que los cambios realizados correspondan únicamente a la tarea trabajada.
+Antes de comenzar una sesión de trabajo, es conveniente comprobar que contamos con la versión más reciente del proyecto.
 
-Que no se hayan agregado archivos innecesarios.
+Para actualizar los cambios disponibles podemos utilizar:
 
-Que no se incluyan contraseñas, claves API u otra información privada.
+`git pull`
 
-6. Pull Requests
+De esta manera trabajamos sobre una versión más actualizada y disminuimos la posibilidad de encontrar conflictos posteriormente.
 
-Cuando una tarea esté terminada, se debe crear un Pull Request hacia main.
+---
 
-El Pull Request debe explicar brevemente:
+## 5. Revisión antes de realizar un push
 
-Qué se desarrolló o modificó.
+Antes de enviar los cambios al repositorio remoto, cada integrante debe comprobar que su trabajo funciona correctamente.
 
-Qué problema se solucionó.
+Se debe revisar principalmente:
 
-Si se realizaron cambios importantes en otras partes del proyecto.
+- Que la aplicación inicie sin problemas.
+- Que la funcionalidad desarrollada cumpla con lo solicitado.
+- Que no se hayan dañado funciones existentes.
+- Que únicamente se hayan modificado los archivos necesarios.
+- Que no existan archivos temporales o innecesarios.
+- Que no se hayan incluido datos personales, contraseñas o claves privadas.
 
-Antes de integrar los cambios a main, otro integrante del equipo debe revisarlos cuando sea posible.
+Después de realizar estas comprobaciones se puede proceder a subir el trabajo.
 
-7. Resolución de conflictos
+---
 
-Si aparecen conflictos al integrar cambios, los integrantes involucrados deben comunicarse para resolverlos.
+## 6. Integración mediante Pull Request
 
-No se deben eliminar o modificar los cambios de otro compañero sin entender primero qué función cumplen.
+Cuando una funcionalidad o corrección haya sido finalizada, se deberá solicitar su integración mediante un **Pull Request**.
 
-En caso de duda, es preferible consultar al equipo antes de realizar cambios importantes.
+En la descripción se debe indicar de forma sencilla:
 
-8. Organización del código
+- Qué trabajo fue realizado.
+- Qué funcionalidad fue agregada o modificada.
+- Qué inconveniente fue solucionado, si aplica.
+- Si el cambio puede influir en otras partes del sistema.
 
-Todos debemos procurar mantener una estructura de código ordenada y coherente.
+Siempre que sea posible, otro integrante deberá revisar el código antes de incorporarlo a `main`.
 
-Se recomienda:
+---
 
-Utilizar nombres claros para variables, funciones, componentes y archivos.
+## 7. Manejo de conflictos
 
-Mantener funciones y componentes con responsabilidades claras.
+Durante el trabajo colaborativo pueden aparecer conflictos cuando diferentes integrantes modifican una misma parte del proyecto.
 
-Evitar duplicar código innecesariamente.
+Cuando esto ocurra, se debe identificar primero qué cambios pertenecen a cada integrante y determinar cuál debe conservarse.
 
-Mantener la estructura de carpetas organizada.
+No se deben eliminar cambios de otros compañeros sin consultar previamente.
 
-Comentar únicamente cuando sea necesario explicar una lógica que no sea evidente.
+Si el conflicto afecta una funcionalidad importante, lo recomendable es comunicarlo al equipo y solucionarlo conjuntamente.
 
-9. Comunicación del equipo
+---
 
-La comunicación es importante para evitar problemas durante el desarrollo.
+## 8. Buenas prácticas de programación
 
-Si un integrante va a modificar una parte importante del proyecto, debe comunicarlo al resto del equipo cuando pueda afectar el trabajo de los demás.
+El código de AgroBPA debe mantenerse organizado para facilitar su lectura, modificación y mantenimiento.
 
-También debemos informar cuando:
+Para ello procuraremos:
 
-Una tarea esté terminada.
+- Utilizar nombres comprensibles.
+- Mantener una estructura de carpetas clara.
+- Evitar código repetido.
+- Separar correctamente las responsabilidades.
+- Mantener los componentes y funciones organizados.
+- Utilizar comentarios solamente cuando aporten información útil.
+- Conservar un formato de código uniforme.
 
-Se encuentre un error importante.
+El objetivo es que cualquier integrante pueda comprender el trabajo realizado por otro compañero.
 
-Se necesite ayuda con alguna parte del proyecto.
+---
 
-Un cambio pueda afectar otras funcionalidades.
+## 9. Comunicación entre integrantes
 
-10. Responsabilidad sobre los cambios
+El desarrollo colaborativo requiere mantener informados a los demás integrantes.
 
-Cada integrante es responsable de revisar los cambios que realiza antes de subirlos al repositorio.
+Se debe comunicar al equipo cuando:
 
-El objetivo no es solamente completar una tarea, sino contribuir a que el proyecto completo se mantenga funcional y organizado.
+- Se comience una actividad que pueda afectar otras funcionalidades.
+- Se termine una tarea importante.
+- Aparezca un error que impida continuar.
+- Se necesite apoyo para resolver un problema.
+- Se realice un cambio estructural.
+- Una modificación pueda afectar el trabajo de otro integrante.
 
-11. Trabajo como equipo
+Una comunicación adecuada permite solucionar problemas antes de que se conviertan en conflictos mayores.
 
-AgroBPA es un proyecto desarrollado entre todos los integrantes del equipo. Por esta razón, debemos mantener una comunicación respetuosa y ayudarnos cuando sea necesario.
+---
 
-Las decisiones importantes sobre la estructura, funcionalidades o cambios que puedan afectar varias partes del proyecto deben ser comunicadas y, cuando sea necesario, discutidas entre todos.
+## 10. Cuidado del repositorio
 
-La finalidad de estas reglas no es complicar el desarrollo, sino ayudarnos a trabajar de manera organizada y evitar perder o sobrescribir el trabajo de nuestros compañeros.
+El repositorio representa el trabajo conjunto del equipo, por lo que cada integrante debe procurar mantenerlo limpio y organizado.
 
-Proyecto AgroBPA — SENA
+Antes de subir archivos se debe verificar que realmente hagan parte del proyecto.
+
+No se deben subir:
+
+- Archivos temporales.
+- Carpetas generadas automáticamente que no sean necesarias.
+- Contraseñas.
+- Claves de acceso.
+- Tokens.
+- Información privada.
+- Archivos personales.
+
+También se recomienda utilizar correctamente el archivo `.gitignore` para evitar agregar elementos que no deben formar parte del repositorio.
+
+---
+
+## 11. Compromiso del equipo
+
+El resultado de AgroBPA depende del trabajo realizado por todos los integrantes.
+
+Cada persona debe asumir responsabilidad sobre las actividades que desarrolla, pero también debe estar dispuesta a colaborar cuando otro integrante necesite apoyo.
+
+Las decisiones que puedan modificar de manera importante la estructura o funcionamiento del proyecto deben ser comunicadas al equipo antes de aplicarse.
+
+Trabajar de manera organizada permitirá avanzar con mayor facilidad, reducir errores y conservar una versión estable del proyecto.
+
+---
+
+## Proyecto AgroBPA
+
+**Trabajo colaborativo — SENA**
+
+**Objetivo:** desarrollar el proyecto de manera organizada, mantener un repositorio limpio y facilitar la integración del trabajo realizado por todos los integrantes.
